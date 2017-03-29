@@ -1,0 +1,105 @@
+#include<iostream>
+#include<fstream>
+#include <cstring>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+	char data[100];
+	int a,b, res;
+	char op;
+	ifstream input;
+	ofstream output;
+	input.open("input.dat");
+	input.open("output.dat");	
+	cout<<"Entering parse"<<endl;
+	while(!input.eof())
+	{	input>>data;
+		cout<<"operation: "<<data<<endl;
+		if(!strcmp(data, "ADD")){
+			op = '+';
+		}
+		else if(!strcmp(data, "SUB")){
+			op = '-';
+		}
+		input>>data;
+		cout<<"operand: "<<data<<endl;
+		a = atoi(data);
+		input>>data;
+		cout<<"operand: "<<data<<endl;
+		b = atoi(data);
+		switch(op){
+			case '+' : res = a+b;
+				break;
+			case '-' : res = a-b;
+				break;
+		}
+		output<<res<<endl;
+	}
+	cout<<"Ending parse"<<endl;
+	input.close();
+	output.close();
+}
+
+
+#include<iostream>
+#include<fstream>
+#include <cstring>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+	char data[100];
+	char operand[3];
+	int a,b, res;
+	char op;
+	ifstream input;
+	ofstream output;
+	input.open("input.dat");
+	output.open("output.dat");
+	while(!input.eof())
+	{	input>>operand;
+		if(!strcmp(data, "ADD")){
+			op = '+';
+		}
+		else if(!strcmp(data, "SUB")){
+			op = '-';
+		}
+		
+		else if(!strcmp(data, "MUL")){
+			op = '*';
+		}
+		else if(!strcmp(data, "DIV")){
+			op = '/';
+		}
+		input>>data;
+		a = atoi(data);
+		input>>data;
+		b = atoi(data);
+		switch(op){
+			case '+' : res = a+b;
+				break;
+			case '-' : res = a-b;
+				break;
+			case '*' : res = a*b;
+				break;
+			case '/' : res = a/b;
+				break;
+		}
+		output<<res<<endl;
+	}
+	input.close();
+}
+
+
+SUB 9 3
+MUL 8 6
+DIV 16 2
+ADD 8 9
+ADD 9 2
+SUB 2 1
+DIV 4 2
