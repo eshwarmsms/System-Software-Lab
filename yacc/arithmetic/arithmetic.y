@@ -1,7 +1,6 @@
 %{
 	#include <stdio.h>
 	#include <stdlib.h>
-	#include <string.h>
 	#include "y.tab.h"
 %}
 
@@ -9,11 +8,10 @@
 
 %%
 	s : s op s | openbr s closebr | id | sp s | s sp
-	;
-	
+	;	
 %%
 
-main(){
+int main(){
 	printf("Enter some expression: ");
 	yyparse();
 	printf("Valid expression");
@@ -21,5 +19,5 @@ main(){
 
 int yyerror(char* s){
 	printf("Invalid expression");
-	exit(0);
+	exit(1);
 }
